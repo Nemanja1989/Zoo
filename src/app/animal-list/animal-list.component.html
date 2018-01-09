@@ -1,23 +1,42 @@
-<p>
-  animal-list works!
-</p>
+<div class="container">
+  <form class="">
+    <div class="form-group">
+      <label for="species">Species</label>
+      <input type="text" name="species"  class="form-control" id="species" placeholder="Enter Species" [(ngModel)]="species">
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name"  class="form-control" id="name" placeholder="Enter Name" [(ngModel)]="name">
+    </div>
+    <div class="form-group">
+      <label for="date_of_birth">Date of Birth</label>
+      <input type="date" name="date_of_birth"  class="form-control" id="date_of_birth" placeholder="Enter Date" [(ngModel)]="date_of_birth">
+    </div>
 
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col"> Sort</th>
-    <th scope="col">Name</th>
-    <th scope="col">Date of Birth</th>
-    <th scope="col">Menu</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr class="table-light" *ngFor="let animal of animals">
-    <td>{{animal.species}}</td>
-    <td>{{animal.name}}</td>
-    <td >{{animal.date_of_birth ? animal.date_of_birth : 'Unknown'}}</td>
-    <!-- or like this  <td >{{animal.date_of_birth  || 'Unknown'}}</td> -->
-    <td><button class="btn btn-danger" (click)="removeAnimal(animal)">Delete</button></td>
-  </tr>
-  </tbody>
-</table>
+    <button class="btn btn-primary" (click)="addAnimal()">Submit</button>
+  </form>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Species</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Menu</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-light" *ngFor="let animal of animals">
+      <td>{{animal.species}}</td>
+      <td>{{animal.name}}</td>
+      <td >{{animal.date_of_birth ? animal.date_of_birth : 'Unknown'}}</td>
+      <!-- or like this  <td >{{animal.date_of_birth  || 'Unknown'}}</td> -->
+      <td><button class="btn btn-danger" (click)="removeAnimal(animal)">Delete</button></td>
+      <td><button class="btn btn-danger" (click)="moveOnTop(animal)">On Top</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
