@@ -1,0 +1,23 @@
+<p>
+  animal-list works!
+</p>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col"> Sort</th>
+    <th scope="col">Name</th>
+    <th scope="col">Date of Birth</th>
+    <th scope="col">Menu</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="table-light" *ngFor="let animal of animals">
+    <td>{{animal.species}}</td>
+    <td>{{animal.name}}</td>
+    <td >{{animal.date_of_birth ? animal.date_of_birth : 'Unknown'}}</td>
+    <!-- or like this  <td >{{animal.date_of_birth  || 'Unknown'}}</td> -->
+    <td><button class="btn btn-danger" (click)="removeAnimal(animal)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
