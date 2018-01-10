@@ -12,6 +12,10 @@
       <label for="date_of_birth">Date of Birth</label>
       <input type="date" name="date_of_birth"  class="form-control" id="date_of_birth" placeholder="Enter Date" [(ngModel)]="date_of_birth">
     </div>
+    <div class="form-group">
+      <label for="sector">sector</label>
+      <input type="text" name="sector"  class="form-control" id="sector" placeholder="Enter Sector" [(ngModel)]="sector">
+    </div>
 
     <button class="btn btn-primary" (click)="addAnimal()">Submit</button>
   </form>
@@ -22,6 +26,7 @@
       <th scope="col">Species</th>
       <th scope="col">Name</th>
       <th scope="col">Date of Birth</th>
+      <th scope="col">Sector</th>
       <th scope="col">Menu</th>
     </tr>
     </thead>
@@ -30,11 +35,33 @@
       <td>{{animal.species}}</td>
       <td>{{animal.name}}</td>
       <td >{{animal.date_of_birth ? animal.date_of_birth : 'Unknown'}}</td>
+      <td>{{animal.sector.name}}</td>
       <!-- or like this  <td >{{animal.date_of_birth  || 'Unknown'}}</td> -->
       <td><button class="btn btn-danger" (click)="removeAnimal(animal)">Delete</button></td>
       <td><button class="btn btn-danger" (click)="moveOnTop(animal)">On Top</button></td>
     </tr>
     </tbody>
+  </table>
+
+  <hr>
+
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>Sector</th>
+              <th>Surface</th>
+              <th>Menu</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let sector of sectors">
+          <tr>
+              <td>{{ sector.name }}</td>
+              <td>{{ sector.surface }}</td>
+              <td>
+                  <button class="btn btn-danger" (click)="showAnimalsFromSector(sector)">Show List of Animals</button>
+              </td>
+          </tr>
+      </tbody>
   </table>
 
 </div>
